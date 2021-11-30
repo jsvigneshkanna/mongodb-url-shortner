@@ -1,0 +1,38 @@
+{
+  "name": "mongodb-url-shortner",
+  "version": "1.0.0",
+  "description": "TinyURL app using nodejs, mongodo, ejs",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsvigneshkanna/mongodb-url-shortner.git"
+  },
+  "keywords": [
+    "mongodb",
+    "ejs",
+    "nodejs"
+  ],
+  "author": "jsvigneshkanna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsvigneshkanna/mongodb-url-shortner/issues"
+  },
+  "homepage": "https://github.com/jsvigneshkanna/mongodb-url-shortner#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongodb": "^4.2.0",
+    "mongoose": "^6.0.14",
+    "node": "^17.1.0",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

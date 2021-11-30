@@ -1,2 +1,5 @@
 # Node ignores
 node_modules/
+
+#credentials
+.env
