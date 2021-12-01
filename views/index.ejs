@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="header-container">
+      <h1>Hey 🙋‍♂️, welcome to VK TinyUrls service</h1>
+    </div>
+    <div class="form-container">
+      <form action="/url" method="post">
+        <label for="fullUrl">Enter your Url</label>
+        <input type="url" name="fullUrl" id="fullUrl" />
+        <button type="submit">Save my url</button>
+      </form>
+    </div>
+    <div class="urls-container">
+      <table>
+        <thead>
+          <tr>
+            <th>full-url</th>
+            <th>tiny-url</th>
+            <th>clicks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Urls.forEach((url) => { %>
+          <tr>
+            <td>
+              <a href="<%= url.fullUrl %>" target="_blank"
+                ><%= url.fullUrl %></a
+              >
+            </td>
+            <td>
+              <a href="<%= url.shortUrl %>" target="_blank"
+                ><%= url.shortUrl %></a
+              >
+            </td>
+            <td><%= url.clicks %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
