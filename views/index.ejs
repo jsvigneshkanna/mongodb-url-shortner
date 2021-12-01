@@ -4,46 +4,72 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon_io/favicon-16x16.png"
+    />
+    <title>vk | TinyUrls</title>
   </head>
   <body>
     <div class="header-container">
-      <h1>Hey 🙋‍♂️, welcome to VK TinyUrls service</h1>
+      <h1>Hey 🙋‍♂️, welcome to vk TinyUrls service</h1>
     </div>
-    <div class="form-container">
-      <form action="/url" method="post">
-        <label for="fullUrl">Enter your Url</label>
-        <input type="url" name="fullUrl" id="fullUrl" />
-        <button type="submit">Save my url</button>
-      </form>
+    <div class="body-container">
+      <div class="form-container">
+        <form action="/url" method="post">
+          <label for="fullUrl">Enter your Url</label>
+          <input type="url" name="fullUrl" id="fullUrl" />
+          <button type="submit">Save my url</button>
+        </form>
+      </div>
+      <div class="urls-container">
+        <table>
+          <thead>
+            <tr>
+              <th>full-url</th>
+              <th>tiny-url</th>
+              <th>clicks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% Urls.forEach((url) => { %>
+            <tr>
+              <td>
+                <a href="<%= url.fullUrl %>" target="_blank"
+                  ><%= url.fullUrl %></a
+                >
+              </td>
+              <td>
+                <a href="<%= url.shortUrl %>" target="_blank"
+                  ><%= url.shortUrl %></a
+                >
+              </td>
+              <td><%= url.clicks %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class="urls-container">
-      <table>
-        <thead>
-          <tr>
-            <th>full-url</th>
-            <th>tiny-url</th>
-            <th>clicks</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% Urls.forEach((url) => { %>
-          <tr>
-            <td>
-              <a href="<%= url.fullUrl %>" target="_blank"
-                ><%= url.fullUrl %></a
-              >
-            </td>
-            <td>
-              <a href="<%= url.shortUrl %>" target="_blank"
-                ><%= url.shortUrl %></a
-              >
-            </td>
-            <td><%= url.clicks %></td>
-          </tr>
-          <% }) %>
-        </tbody>
-      </table>
+    <div class="footer-container">
+      <footer>
+        <h3>Made with 💗 vigneshkanna 2021</h3>
+      </footer>
     </div>
   </body>
 </html>
