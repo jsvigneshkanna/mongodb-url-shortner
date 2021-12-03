@@ -33,6 +33,7 @@ dbCon.on("open", () => {
 app.get("/", async (req, res) => {
   try {
     const Urls = await urls.find();
+    res.status(200);
     res.render("index.ejs", { Urls: Urls });
   } catch (error) {
     console.error(error);
@@ -49,9 +50,12 @@ app.post("/url", async (req, res) => {
       fullUrl: fullurl,
     });
     await url.save();
+    res.status(200);
     res.redirect("/");
   } catch (error) {
     console.error(error);
+    res.status(500);
+    res.send("Something wrong 😟 check the logs!");
   }
 });
 
@@ -68,8 +72,26 @@ app.get("/:shorturl", async (req, res) => {
       },
       { $set: { clicks: newClick } }
     );
+    res.status(200);
     res.redirect(fullUrl);
   } catch (error) {
     console.error(error);
+    res.status(500);
+    res.send("Something wrong 😟 check the logs!");
+  }
+});
+
+// Deleting a particaular url row from table (full-url & short-url)
+app.post("/delete", async (req, res) => {
+  try {
+    const shorturl = req.body.shorturl;
+    console.log(shorturl);
+    const deleteRes = await urls.deleteOne({ shortUrl: shorturl });
+    res.status(200);
+    res.redirect("/");
+  } catch (error) {
+    console.error(error);
+    res.status(500);
+    res.send("Something wrong 😟 check the logs!");
   }
 });

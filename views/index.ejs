@@ -12,6 +12,10 @@
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
       rel="icon"
       type="image/png"
       sizes="32x32"
@@ -41,9 +45,10 @@
         <table>
           <thead>
             <tr>
-              <th>full-url</th>
-              <th>tiny-url</th>
-              <th>clicks</th>
+              <th>Full-Url</th>
+              <th>Tiny-Url</th>
+              <th>Clicks</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -60,6 +65,11 @@
                 >
               </td>
               <td><%= url.clicks %></td>
+              <td>
+                <span class="material-icons delete" id="<%= url.shortUrl %>">
+                  delete
+                </span>
+              </td>
             </tr>
             <% }) %>
           </tbody>
@@ -71,5 +81,7 @@
         <h3>Made with 💗 vigneshkanna 2021</h3>
       </footer>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../client.js"></script>
   </body>
 </html>

@@ -5,6 +5,10 @@ body {
   box-sizing: border-box;
 }
 
+.material-icons.delete {
+  color: rgba(129, 2, 2, 0.54);
+}
+
 .header-container {
   background-color: #a06e85;
   padding: 8px;
