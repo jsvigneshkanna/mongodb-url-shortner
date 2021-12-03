@@ -59,9 +59,15 @@ app.post("/url", async (req, res) => {
 app.get("/:shorturl", async (req, res) => {
   try {
     const shorturl = req.params.shorturl;
-    console.log(shorturl);
     let { fullUrl, clicks } = await urls.findOne({ shortUrl: shorturl });
-    console.log(fullUrl);
+    console.log(clicks);
+    const newClick = clicks + 1;
+    const url = await urls.updateOne(
+      {
+        shortUrl: shorturl,
+      },
+      { $set: { clicks: newClick } }
+    );
     res.redirect(fullUrl);
   } catch (error) {
     console.error(error);
